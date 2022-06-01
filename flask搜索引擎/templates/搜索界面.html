@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    body{
+		background: url("https://images1.h128.com/upload/202001/21/202001211015233327.jpg?imageMogr2/auto-orient/thumbnail/787x/blur/1x0/quality/100");
+                /*兼容浏览器版本*/
+                -webkit-background-size: cover;
+
+
+	}
+* {
+    margin: 0;
+
+    padding: 0;
+
+}
+
+.container {
+    height: 70px;
+
+    width: 1000px;
+
+    margin: 100px auto 0 auto;
+
+}
+
+.parent {
+    position: relative;
+
+}
+
+.search {
+    width: 500px;
+
+    height: 50px;
+
+    border-radius: 18px;
+
+    padding-left: 20px;
+
+    position: absolute;
+  	  left:450px;
+    top:20px;
+
+}
+
+.button{
+	float:right;
+	width:96px;
+	height:40px;
+	color:black;
+  border-radius: 18px;
+	background-color:#F9F0DA;/*将按钮背景设置为红色，字体设置为白*/
+	border:none;
+	outline:none;
+  	position: absolute;
+  	left:1000px;
+   top:30px;
+
+}
+.title{
+    font-size:25px;
+    color:white;
+}
+
+
+</style>
+</head>
+<body>
+
+        <br/>
+        <br/>
+        <br/>
+    <form  action="/result" method="post" class="parent" enctype="multipart/form-data" >
+        <input type="text"  name='sear' class="search" placeholder="请输入搜索词" required>
+        <input type="submit" name='submit' class='button' value="Search">
+
+    </form>
+
+
+
+
+<div style="'position:absolute left:-20px" class="container">
+
+
+        <br/>
+    {% for k in data %}
+              <div >
+               <a  class='title' style="'float:left">
+
+                 {{k['title']}}
+
+               </a>
+                             <div >
+                                    <a href= {{k['url']}} >{{k['url']}} </a>
+                            </div>
+                            <p >
+                              {{k['zy']}}
+                            </p>
+
+                        <p >
+                          keywords:{{k['keywords']}}
+                        </p>
+                        <p >
+                          T:{{k['time']}}
+                        </p>
+
+               <br/>
+              </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

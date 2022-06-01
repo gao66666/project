@@ -1,0 +1,106 @@
+<!doctype html>
+<html ng-app="app">
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单搜索引擎</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<style >body  {
+    background-image: url("/static/images/back3.jpg");
+    background-position:-60% 120%;
+}
+</style>
+
+</head>
+<body ng-controller="ctrl">
+
+<img src="{{url_for('static',filename='images/logo.png')}}" alt="" class="logo" style="height: 61px;width: 202px;position: absolute;left: 31px;top:23px;">
+<div class="container">
+    <br>
+    <br>
+    <form class="form-inline" method="post" action="/result" style="position: absolute;top: 11px;    left: 3px;
+">
+
+        <div class="form-group" style="    position: absolute;left: 32px;top: 89px;">
+            <input type="text" style="height: 40px; width: 360px;" class="form-control" ng-model="query"
+                   value="{{ value }}" name="query" placeholder="{{ori_key}}" id="query"/>
+        </div>
+        <input class="btn btn-small btn-success" role="button" type="submit" value="搜索" id="btn" style="position: absolute;left: 430px;top: 89px">
+    </form>
+
+    <br>
+
+
+    <br>
+    <div id="box" style="position: absolute;top: 155px;">
+        <br>共有{{ length }}条结果
+    {% for dic in data %}
+    <h4><a href="{{ dic['url'] }}" target="_blank">{{ dic['title']|safe }}</a></h4>
+    <p>{{ dic['zy']|safe }}</p>
+        <p>关键词: {{ dic['keywords']|safe }}</p>
+    <p>地址：{{ dic['url'] }}</p>
+        <p>{{ dic['time']|safe }}</p>
+
+    <br>
+    {% endfor %}
+</div>
+</div>
+
+
+
+
+<form  method="post" action="/result"  class="form-inline" style="position: absolute;top: 300%;">
+    <input type="text" style="visibility: hidden;" id="keywords" value={{keywords}}  name="key"/>
+   {%for num in pages%}
+    {%if num==now_page%}
+        <button style="background-color: #FFC0CB;" class="btn btn-success" type="submit" id="form_button1" name ='page' value="{{num}}">{{num}}  </button>
+    {% else %}
+        <button class="btn btn-success" type="submit" id="form_button2" name ='page' value="{{num}}">{{num}}  </button>
+    {%endif%}
+  {% endfor %}
+</form>
+
+</body>
+
+
+
+<script>
+
+    var keywords = '{{ keywords }}'.split(",");
+
+
+      function find(searchVal, bgColor) {
+            var oDiv = document.getElementsByTagName("body")[0];
+            var sText = oDiv.innerHTML;
+            var reg1 = /<script[^>]*>(.|\n)*<\/script>/gi; //去掉script标签
+            sText = sText.replace(reg1, "");
+            var bgColor = bgColor || "red";
+            var sKey = "<span name='addSpan' style='color: " + bgColor + ";'>" + searchVal + "</span>";
+            var num = -1;
+            var rStr = new RegExp(searchVal, "g");
+            var rHtml = new RegExp("\<.*?\>", "ig");//匹配html元素
+            var aHtml = sText.match(rHtml); //存放html元素的数组
+            sText = sText.replace(rHtml, '{~}');  //替换html标签
+            sText = sText.replace(rStr, sKey); //替换key
+            sText = sText.replace(/{~}/g, function () {  //恢复html标签
+                  num++;
+                  return aHtml[num];
+            });
+            oDiv.innerHTML = sText;
+      }
+    for(var i=0,len=keywords.length;i<len; i++){
+        if (keywords[i]!==''){
+            find(keywords[i])
+            }
+
+}
+
+</script>
+</html>

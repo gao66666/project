@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link href="static/css/start.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+
+        <br/>
+        <br/>
+        <br/>
+        <img src="{{url_for('static',filename='images/logo.png')}}" alt="" class="logo">
+    <form  action="/result" method="post" class="parent" enctype="multipart/form-data"  >
+        <input type="text"  name='query' class="search" placeholder="请输入搜索词" required>
+        <input type="submit" name='submit' class='button' value="Search" style="position: absolute;top: 20px;left: 833px;">
+
+    </form>
+
+
+
+
+<div style="'position:absolute left:-20px" class="container">
+
+        <br/>
+        <br/>
+        <br/>
+    {% for k in data %}
+              <div >
+               <a  class='title' style="'float:left">
+
+                 {{k['title']}}
+
+               </a>
+                             <div >
+                                    <a href= {{k['url']}} >{{k['url']}} </a>
+                            </div>
+                            <p >
+                              {{k['zy']}}
+                            </p>
+
+                        <p >
+                          keywords:{{k['keywords']}}
+                        </p>
+                        <p >
+                          T:{{k['time']}}
+                        </p>
+
+               <br/>
+              </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

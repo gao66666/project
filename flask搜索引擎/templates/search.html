@@ -1,0 +1,88 @@
+<!doctype html>
+<html ng-app="app">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单搜索引擎</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="ctrl">
+
+
+<div class="container">
+    <br>
+    <br>
+    <form class="form-inline" method="post" action="/result">
+
+        <div class="form-group">
+            <input type="text" style="height: 40px; width: 360px;" class="form-control" ng-model="query"
+                   value="{{ value }}" name="query" id="query"/>
+        </div>
+        <input class="btn btn-small btn-success" role="button" type="submit" value="搜索" id="btn">
+    </form>
+
+    <br>
+
+    <br>共有{{ length }}条结果
+    <br>
+    <div id="box">
+    {% for dic in data %}
+    <h4><a href="{{ dic['url'] }}" target="_blank">{{ dic['title']|safe }}</a></h4>
+    <p>{{ dic['zy']|safe }}</p>
+        <p>关键词: {{ dic['keywords']|safe }}</p>
+    <p>地址：{{ dic['url'] }}</p>
+    <br>
+    {% endfor %}
+</div>
+</div>
+
+
+<a href="{{url_for('test',name=000)}}"> <-上一页   </a>
+   {{page}}
+<a href="{{url_for('test',name=111)}}">   ->下一页</a>
+<form>
+
+
+</form>
+
+
+
+</body>
+
+
+
+<script>
+
+    var keywords = '{{ keywords }}'.split(",");
+
+
+      function find(searchVal, bgColor) {
+            var oDiv = document.getElementsByTagName("body")[0];
+            var sText = oDiv.innerHTML;
+            var reg1 = /<script[^>]*>(.|\n)*<\/script>/gi; //去掉script标签
+            sText = sText.replace(reg1, "");
+            var bgColor = bgColor || "red";
+            var sKey = "<span name='addSpan' style='color: " + bgColor + ";'>" + searchVal + "</span>";
+            var num = -1;
+            var rStr = new RegExp(searchVal, "g");
+            var rHtml = new RegExp("\<.*?\>", "ig");//匹配html元素
+            var aHtml = sText.match(rHtml); //存放html元素的数组
+            sText = sText.replace(rHtml, '{~}');  //替换html标签
+            sText = sText.replace(rStr, sKey); //替换key
+            sText = sText.replace(/{~}/g, function () {  //恢复html标签
+                  num++;
+                  return aHtml[num];
+            });
+            oDiv.innerHTML = sText;
+      }
+    for(var i=0,len=keywords.length;i<len; i++){
+        find(keywords[i])
+
+}
+
+</script>
+</html>

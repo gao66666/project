@@ -1,0 +1,76 @@
+
+    body{
+		background: url("https://images1.h128.com/upload/202001/21/202001211015233327.jpg?imageMogr2/auto-orient/thumbnail/787x/blur/1x0/quality/100");
+
+                -webkit-background-size: cover;
+
+
+	}
+* {
+    margin: 0;
+
+    padding: 0;
+
+}
+
+.container {
+    height: 7px;
+
+    width: 10px;
+
+    margin: 100px auto 0 auto;
+
+
+}
+.logo {
+        height: 96px;
+    width: 292px;
+    position: absolute;
+    left: 342px;
+    top: 111px;
+
+}
+
+.parent {
+     position: absolute;
+  	  left:-66px;
+      top:200px;
+
+}
+
+.search {
+    width: 500px;
+
+    height: 50px;
+
+    border-radius: 18px;
+
+    padding-left: 20px;
+
+    position: absolute;
+  	  left:300px;
+      top:12px;
+
+
+}
+
+.button{
+	float:right;
+	width:96px;
+	height:40px;
+	color:black;
+  border-radius: 18px;
+	background-color:#F9F0DA;/*将按钮背景设置为红色，字体设置为白*/
+	border:none;
+	outline:none;
+  	position: absolute;
+  	left:900px;
+   top:20px;
+
+}
+.title{
+    font-size:25px;
+    color:white;
+}
+
+
