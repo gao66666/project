@@ -1,0 +1,13 @@
+,name,#,e,d,h,f,c,g,b,a,A,S,B
+0,S_->. S S->. a A S->. b B,null,null,null,null,null,null,null,1,6,null,11,null
+1,S->b . B B->. f g B->. h,null,null,null,2,3,null,null,null,null,null,null,5
+2,B->h .,r6,r6,r6,r6,r6,r6,r6,r6,r6,null,null,null
+3,B->f . g,null,null,null,null,null,null,4,null,null,null,null,null
+4,B->f g .,r5,r5,r5,r5,r5,r5,r5,r5,r5,null,null,null
+5,S->b B .,r2,r2,r2,r2,r2,r2,r2,r2,r2,null,null,null
+6,S->a . A A->. c d A->. e,null,7,null,null,null,8,null,null,null,10,null,null
+7,A->e .,r4,r4,r4,r4,r4,r4,r4,r4,r4,null,null,null
+8,A->c . d,null,null,9,null,null,null,null,null,null,null,null,null
+9,A->c d .,r3,r3,r3,r3,r3,r3,r3,r3,r3,null,null,null
+10,S->a A .,r1,r1,r1,r1,r1,r1,r1,r1,r1,null,null,null
+11,S_->S .,acc,null,null,null,null,null,null,null,null,null,null,null

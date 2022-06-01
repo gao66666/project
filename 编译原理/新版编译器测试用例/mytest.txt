@@ -1,0 +1,12 @@
+            int main ( ) {
+            int i = 1 ;
+            int a = 2 ;
+            int sum = 6 ;
+            if ( a > i ) {
+            sum = a + sum ;
+            for ( i = 0 ; i < a ; i = i + 1 )
+            {
+            sum = sum + i ;
+            }
+            }
+            }

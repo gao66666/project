@@ -1,0 +1,19 @@
+#include <stdio.h>
+{
+void main()
+{
+
+int cny=1;
+int cn2=12;
+int cn_1=6;
+//jjjs
+int c=12;
+/* sjns
+skdme
+**lsl**
+*/
+
+}
+
+
+}

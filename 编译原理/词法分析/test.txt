@@ -1,0 +1,31 @@
+#include <stdio.h>
+{
+void main()
+{
+
+int cny=1;
+int cn2=12;
+int cn_1=6;
+
+}
+1
+1
+1
+1
+1
+
+1
+1
+1
+1
+11
+
+11
+1
+1
+1
+1
+1
+
+
+}

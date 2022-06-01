@@ -1,0 +1,13 @@
+int main ( ) {
+int a = 0 ;
+int b = 10 ;
+if ( a < b ) {
+b = 20 ;
+a = 30 ;
+
+} else {
+b = 30 ;
+
+}
+
+}

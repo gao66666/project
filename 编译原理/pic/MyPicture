@@ -1,0 +1,12 @@
+// the test
+digraph MyPicture {
+	node [shape=doublecircle]
+	// the test
+	subgraph MyPicture {
+		"1 a" [color=red shape=circle]
+	}
+	// the test
+	subgraph MyPicture {
+		"0start" -> "1 a" [label=a]
+	}
+}

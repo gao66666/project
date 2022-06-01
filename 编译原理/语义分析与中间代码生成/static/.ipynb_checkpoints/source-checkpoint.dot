@@ -1,0 +1,188 @@
+digraph {
+	"func 1" [label=func]
+	"S 0" -> "func 1"
+	"funcs 2" [label=funcs]
+	"S 0" -> "funcs 2"
+	"type 4" [label=type]
+	"func 1" -> "type 4"
+	"IDN 5" [label=IDN]
+	"func 1" -> "IDN 5"
+	"( 6" [label="("]
+	"func 1" -> "( 6"
+	"args 7" [label=args]
+	"func 1" -> "args 7"
+	") 8" [label=")"]
+	"func 1" -> ") 8"
+	"func_body 9" [label=func_body]
+	"func 1" -> "func_body 9"
+	"int 11" [label=int]
+	"type 4" -> "int 11"
+	"int 11" [label=int color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"IDN 5" [label=IDN color=black]
+	"IDN 13" [label=main color=red shape=doublecircle]
+	"IDN 5" -> "IDN 13"
+	node [color=black shape=circle]
+	"( 6" [label="(" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"args 7" [label="$" color=blue]
+	node [color=black shape=circle]
+	") 8" [label=")" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"block 15" [label=block]
+	"func_body 9" -> "block 15"
+	"{ 17" [label="{"]
+	"block 15" -> "{ 17"
+	"define_stmts 18" [label=define_stmts]
+	"block 15" -> "define_stmts 18"
+	"stmts 19" [label=stmts]
+	"block 15" -> "stmts 19"
+	"} 20" [label="}"]
+	"block 15" -> "} 20"
+	"{ 17" [label="{" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"define_stmt 22" [label=define_stmt]
+	"define_stmts 18" -> "define_stmt 22"
+	"type 25" [label=type]
+	"define_stmt 22" -> "type 25"
+	"IDN 26" [label=IDN]
+	"define_stmt 22" -> "IDN 26"
+	"init 27" [label=init]
+	"define_stmt 22" -> "init 27"
+	"vars 28" [label=vars]
+	"define_stmt 22" -> "vars 28"
+	"; 29" [label=";"]
+	"define_stmt 22" -> "; 29"
+	"define_stmts 30" [label=define_stmts]
+	"define_stmt 22" -> "define_stmts 30"
+	"int 32" [label=int]
+	"type 25" -> "int 32"
+	"int 32" [label=int color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"IDN 26" [label=IDN color=black]
+	"IDN 34" [label=result color=red shape=doublecircle]
+	"IDN 26" -> "IDN 34"
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"init 27" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"vars 28" [label="$" color=blue]
+	node [color=black shape=circle]
+	"; 29" [label=";" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"define_stmt 37" [label=define_stmt]
+	"define_stmts 30" -> "define_stmt 37"
+	"type 40" [label=type]
+	"define_stmt 37" -> "type 40"
+	"IDN 41" [label=IDN]
+	"define_stmt 37" -> "IDN 41"
+	"init 42" [label=init]
+	"define_stmt 37" -> "init 42"
+	"vars 43" [label=vars]
+	"define_stmt 37" -> "vars 43"
+	"; 44" [label=";"]
+	"define_stmt 37" -> "; 44"
+	"define_stmts 45" [label=define_stmts]
+	"define_stmt 37" -> "define_stmts 45"
+	"int 47" [label=int]
+	"type 40" -> "int 47"
+	"int 47" [label=int color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"IDN 41" [label=IDN color=black]
+	"IDN 49" [label=a color=red shape=doublecircle]
+	"IDN 41" -> "IDN 49"
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"init 42" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"vars 43" [label="$" color=blue]
+	node [color=black shape=circle]
+	"; 44" [label=";" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"define_stmt 52" [label=define_stmt]
+	"define_stmts 45" -> "define_stmt 52"
+	"type 55" [label=type]
+	"define_stmt 52" -> "type 55"
+	"IDN 56" [label=IDN]
+	"define_stmt 52" -> "IDN 56"
+	"init 57" [label=init]
+	"define_stmt 52" -> "init 57"
+	"vars 58" [label=vars]
+	"define_stmt 52" -> "vars 58"
+	"; 59" [label=";"]
+	"define_stmt 52" -> "; 59"
+	"define_stmts 60" [label=define_stmts]
+	"define_stmt 52" -> "define_stmts 60"
+	"int 62" [label=int]
+	"type 55" -> "int 62"
+	"int 62" [label=int color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"IDN 56" [label=IDN color=black]
+	"IDN 64" [label=b color=red shape=doublecircle]
+	"IDN 56" -> "IDN 64"
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"init 57" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"vars 58" [label="$" color=blue]
+	node [color=black shape=circle]
+	"; 59" [label=";" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"define_stmt 67" [label=define_stmt]
+	"define_stmts 60" -> "define_stmt 67"
+	"type 70" [label=type]
+	"define_stmt 67" -> "type 70"
+	"IDN 71" [label=IDN]
+	"define_stmt 67" -> "IDN 71"
+	"init 72" [label=init]
+	"define_stmt 67" -> "init 72"
+	"vars 73" [label=vars]
+	"define_stmt 67" -> "vars 73"
+	"; 74" [label=";"]
+	"define_stmt 67" -> "; 74"
+	"define_stmts 75" [label=define_stmts]
+	"define_stmt 67" -> "define_stmts 75"
+	"char 77" [label=char]
+	"type 70" -> "char 77"
+	"char 77" [label=char color=red shape=doublecircle]
+	node [color=black shape=circle]
+	"IDN 71" [label=IDN color=black]
+	"IDN 79" [label=s color=red shape=doublecircle]
+	"IDN 71" -> "IDN 79"
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"init 72" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"vars 73" [label="$" color=blue]
+	node [color=black shape=circle]
+	"; 74" [label=";" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"define_stmts 75" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"define_stmts 75" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"define_stmts 75" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"define_stmts 75" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"define_stmts 75" [label="$" color=blue]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"stmts 19" [label="$" color=blue]
+	node [color=black shape=circle]
+	"} 20" [label="}" color=red shape=doublecircle]
+	node [color=black shape=circle]
+	node [color=red shape=doublecircle]
+	"funcs 2" [label="$" color=blue]
+	node [color=black shape=circle]
+}

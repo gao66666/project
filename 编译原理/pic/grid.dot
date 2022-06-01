@@ -1,0 +1,13 @@
+digraph  {
+4 [shape=doublecircle];
+7;
+8;
+2;
+4 -> 4  [name="a or b"];
+7 -> 7  [name=b];
+7 -> 8  [name=a];
+8 -> 2  [name=b];
+8 -> 8  [name=a];
+2 -> 8  [name=a];
+2 -> 4  [name=b];
+}

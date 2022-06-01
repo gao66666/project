@@ -1,0 +1,32 @@
+strict digraph  {
+"0start" [color=red, shape=doublecircle];
+"1 a" [color=red, shape=circle];
+"2 b" [color=red, shape=circle];
+3;
+4;
+5;
+6;
+7;
+8;
+"7 a" [color=red, shape=circle];
+"8 b" [color=red, shape=circle];
+"9 b" [color=red, shape=circle];
+13;
+"1end" [color=blue, shape=doublecircle];
+"0start" -> 13  [label=sgm];
+"1 a" -> 6  [label=sgm];
+"2 b" -> 6  [label=sgm];
+3 -> 4  [label=sgm];
+3 -> 5  [label=sgm];
+4 -> "1 a"  [label=a];
+5 -> "2 b"  [label=b];
+6 -> 3  [label=sgm];
+6 -> 8  [label=sgm];
+7 -> 3  [label=sgm];
+7 -> 8  [label=sgm];
+8 -> "7 a"  [label=a];
+"7 a" -> "8 b"  [label=b];
+"8 b" -> "9 b"  [label=b];
+"9 b" -> "1end"  [label=sgm];
+13 -> 7  [label=""];
+}
