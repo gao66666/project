@@ -1,7 +1,0 @@
-int main ( ) {
-
-int a = 12 ;
-int c = 24 ;
-char c = '12' ;
-
-}
