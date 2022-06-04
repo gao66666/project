@@ -257,6 +257,7 @@ def start_NFA(zz):
 
     # 实例化一个Digraph对象(有向图)，name:生成的图片的图片名，format:生成的图片格式
     global dot
+    # 实例化一个Digraph对象(有向图)，name:生成的图片的图片名，format:生成的图片格式
     dot = nx.DiGraph(splines=True)
     index = 0
     cnt = 1
@@ -271,14 +272,15 @@ def start_NFA(zz):
     # 存储非运算符 sgm表示空字符
     stack_sign = [d]
 
+    zz = '(0|1)*0(0|1)'
     zm = []
     while True:
         s = zz[index]
 
-        print('当前stack_cal', stack_cal, s)
-        print('剩余', len(stack_sign))
-        print('当前尾节点', stack_sign[-1].tail, '当前头节点', stack_sign[-1].head, '当前节点label', stack_sign[-1].label)
-
+        #     print('当前stack_cal',stack_cal,s)
+        #     print('剩余',len(stack_sign))
+        #     print('当前尾节点',stack_sign[-1].tail,'当前头节点',stack_sign[-1].head,'当前节点label',stack_sign[-1].label)
+        #     plot(dot,'NFA')
         if s in ['+', '\\', '|', '*', '.', '?', '{', '}', '(', ')', '[', ']']:
             if level[stack_cal[-1]] < level[s]:
                 if s == '}':
@@ -364,17 +366,27 @@ def start_NFA(zz):
         stack_cal.pop()
 
     z_node = []
+    real_start = ''
     for n in dot.nodes:
         if dot.out_degree(n) == 0 and n != '0start':
             z_node.append(n)
             continue
+
     zt_n = z_node[0]
 
     d.add_node(name='end', shape='doublecircle')
     dot.add_edge(z_node[0], 'end', name='sgm')
+    # dot.add_edge('0start',jinru,name='sgm')
+
+    for n in dot.nodes:
+        if dot.in_degree(n) == 0 and n != '0start':
+            real_start = n
+            dot.add_edge('0start', n, name='sgm')
+            break
 
     plot(dot, 'NFA')
     dot.remove_node('end')
+    dot.remove_node('0start')
     import gc
     gc.collect()
 
@@ -406,7 +418,8 @@ def start_NFA(zz):
     for n in dot.nodes:
         k = get_closure(n, res=[], la='sgm', dot=dot, gy=[])
         dr[n] = list(set(k))
-    start = list(dict(dot['0start'].items()).keys())[0]
+    start = real_start
+    print('realstart',real_start)
 
     import pandas as pd
     import numpy as np
@@ -446,11 +459,11 @@ def start_NFA(zz):
     ct_p = df.loc[:, 'sgmlist'].apply(lambda x: start in x)
 
     pre_sgm = df['sgmlist']
-
+    
     from sklearn.preprocessing import LabelEncoder
-
+    
     La = LabelEncoder()
-
+    df.to_csv('FA.csv')
     for i in range(len(df.columns)):
         df.iloc[:, i] = df.iloc[:, i].astype(str)
         if i == 0:
